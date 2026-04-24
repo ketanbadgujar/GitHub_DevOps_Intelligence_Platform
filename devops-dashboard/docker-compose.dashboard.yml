@@ -1,0 +1,27 @@
+services:
+  dashboard:
+    build:
+      context: ./dashboard # folder containing this Phase 6 project
+      dockerfile: Dockerfile
+    container_name: devops-dashboard
+    ports:
+      - "3000:3000"
+    depends_on:
+      - api-gateway # wait for gateway to be up
+    environment:
+      # In Docker the Nginx proxy handles /api → api-gateway:8000
+      # No VITE_ vars needed at runtime; baked in at build time if required
+      - NODE_ENV=production
+    networks:
+      - devops-network # must match the network name in your existing compose
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+
+# If your existing compose does NOT already define this network, add:
+# networks:
+#   devops-network:
+#     driver: bridge

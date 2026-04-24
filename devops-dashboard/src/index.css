@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: #0a0c0f;
+    color: #e2e8f0;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0f1117;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #252e42;
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #22d3ee44;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-base-800 border border-base-700 rounded-xl;
+  }
+
+  .card-glow-cyan {
+    box-shadow: 0 0 0 1px rgba(34,211,238,0.12), 0 4px 24px rgba(34,211,238,0.06);
+  }
+  .card-glow-amber {
+    box-shadow: 0 0 0 1px rgba(251,191,36,0.12), 0 4px 24px rgba(251,191,36,0.06);
+  }
+  .card-glow-rose {
+    box-shadow: 0 0 0 1px rgba(251,113,133,0.12), 0 4px 24px rgba(251,113,133,0.06);
+  }
+  .card-glow-emerald {
+    box-shadow: 0 0 0 1px rgba(52,211,153,0.12), 0 4px 24px rgba(52,211,153,0.06);
+  }
+
+  .metric-value {
+    @apply font-mono text-3xl font-semibold tracking-tight;
+  }
+
+  .label {
+    @apply font-sans text-xs font-medium uppercase tracking-widest text-slate-500;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-mono font-medium;
+  }
+
+  .nav-link {
+    @apply flex items-center gap-2.5 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-150;
+  }
+
+  .status-dot {
+    @apply w-1.5 h-1.5 rounded-full;
+  }
+
+  .grid-scanline {
+    background-image: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 1px,
+      rgba(255,255,255,0.012) 1px,
+      rgba(255,255,255,0.012) 2px
+    );
+  }
+}
+
+/* Recharts overrides */
+.recharts-cartesian-grid-horizontal line,
+.recharts-cartesian-grid-vertical line {
+  stroke: rgba(255,255,255,0.05) !important;
+}
+
+.recharts-tooltip-wrapper {
+  outline: none !important;
+}
+
+.custom-tooltip {
+  background: #161b24;
+  border: 1px solid #252e42;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: #e2e8f0;
+}
+
+/* Animated number counter */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.count-animate {
+  animation: countUp 0.5s ease-out;
+}
+
+/* Skeleton loading */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #161b24 25%, #1e2535 50%, #161b24 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 6px;
+}

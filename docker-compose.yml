@@ -110,5 +110,19 @@ services:
         condition: service_started
     restart: unless-stopped
 
+  dashboard: # ← new
+    build:
+      context: ./devops-dashboard
+      dockerfile: Dockerfile
+    container_name: devops_dashboard
+    ports:
+      - "3000:3000"
+    depends_on:
+      api:
+        condition: service_started
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+
 volumes:
   postgres_data:
