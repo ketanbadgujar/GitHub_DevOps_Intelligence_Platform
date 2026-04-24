@@ -9,7 +9,6 @@ load_dotenv()
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__)))
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', 'collector'))
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from database import SessionLocal, test_connection
 from dora import calculate_dora_metrics
