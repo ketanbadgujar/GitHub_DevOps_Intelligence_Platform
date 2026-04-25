@@ -112,13 +112,13 @@ Automatic Slack notifications when risk scores cross thresholds — high-risk PR
 github-devops-platform/
 │
 ├── services/
-│   ├── collector/          # Phase 1 — GitHub API data ingestion
-│   ├── metrics/            # Phase 2 — DORA metrics FastAPI service
-│   ├── ml/                 # Phase 3 — XGBoost + Isolation Forest
-│   ├── api/                # Phase 4 — API gateway + Slack alerting
-│   └── alerting/           # Phase 4 — Alert scheduler
+│   ├── collector/          # GitHub API data ingestion
+│   ├── metrics/            # DORA metrics FastAPI service
+│   ├── ml/                 # XGBoost + Isolation Forest
+│   ├── api/                # API gateway + Slack alerting
+│   └── alerting/           # Alert scheduler
 │
-├── devops-dashboard/       # Phase 6 — React frontend
+├── devops-dashboard/       # React frontend
 │   ├── src/
 │   │   ├── pages/          # Overview, DORA, PR Risk, Burnout, Platform
 │   │   ├── components/     # UI primitives (cards, charts, badges)
@@ -262,6 +262,6 @@ Every service has auto-generated Swagger UI. When the stack is running:
 
 <div align="center">
 
-Built with 🔥 by [Ketan Badgujar](https://github.com/ketanbadgujar)
+Built by [Ketan Badgujar](https://github.com/ketanbadgujar)
 
 </div>
