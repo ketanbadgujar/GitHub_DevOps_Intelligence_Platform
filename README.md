@@ -260,59 +260,8 @@ Every service has auto-generated Swagger UI. When the stack is running:
 
 ---
 
-## 🚀 Deployment (AWS EC2 Free Tier)
-
-The entire stack runs on a **t2.micro** instance (free for 12 months).
-
-```bash
-# On your EC2 instance (Ubuntu 24.04)
-curl -fsSL https://get.docker.com | sudo sh
-sudo usermod -aG docker ubuntu
-newgrp docker
-
-git clone https://github.com/ketanbadgujar/GitHub_DevOps_Intelligence_Platform.git
-cd GitHub_DevOps_Intelligence_Platform
-cp .env.example .env
-# edit .env with your values
-docker compose up --build -d
-```
-
-Open port 3000 in your EC2 security group and access at:
-```
-http://YOUR_EC2_PUBLIC_IP:3000
-```
-
----
-
-## 🛣️ Phases
-
-| Phase | What was built | Status |
-|-------|---------------|--------|
-| **Phase 1** | GitHub API collector + PostgreSQL schema | ✅ Complete |
-| **Phase 2** | DORA metrics computation + FastAPI service | ✅ Complete |
-| **Phase 3** | XGBoost PR risk + Isolation Forest burnout ML | ✅ Complete |
-| **Phase 4** | API gateway + Swagger UI + Slack alerting | ✅ Complete |
-| **Phase 5** | Dockerfiles + docker-compose + GitHub Actions CI/CD | ✅ Complete |
-| **Phase 6** | React dashboard frontend | ✅ Complete |
-
----
-
-## 🤝 Contributing
-
-Pull requests are welcome. For major changes, open an issue first to discuss what you'd like to change.
-
----
-
-## 📄 License
-
-MIT
-
----
-
 <div align="center">
 
 Built with 🔥 by [Ketan Badgujar](https://github.com/ketanbadgujar)
-
-*If this project helped you, give it a ⭐ on GitHub*
 
 </div>
